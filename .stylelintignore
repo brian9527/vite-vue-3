@@ -1,0 +1,11 @@
+*.json
+*.js
+*.ts
+*.png
+*.eot
+*.ttf
+*.woff
+dist/**
+types
+types/**
+node_modules/**

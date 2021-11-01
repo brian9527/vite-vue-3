@@ -1,0 +1,96 @@
+{
+  "Initialize *.vue": {
+    "scope": "vue",
+    "prefix": "init:vue-standard",
+    "body": [
+      "<script lang=\"ts\">",
+      "import { defineComponent } from 'vue';",
+      "",
+      "export default defineComponent({",
+      "  name: '$1',",
+      "  setup() {",
+      "    return {",
+      "    };",
+      "  }",
+      "});",
+      "</script>",
+      "",
+      "<template>",
+      "  $0",
+      "</template>",
+      "",
+      "<style lang=\"postcss\"></style>",
+      "",
+    ],
+    "description": "*.vue 初始化"
+  },
+  "Initialize *.vue with script-setup": {
+    "scope": "vue",
+    "prefix": "init:vue-setup",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "</script>",
+      "",
+      "<template>",
+      "  $0",
+      "</template>",
+      "",
+      "<style lang=\"postcss\"></style>",
+      "",
+    ],
+    "description": "*.vue 初始化"
+  },
+  "Add a template tag": {
+    "scope": "vue",
+    "prefix": "template",
+    "body": "<template>$0</template>",
+    "description": "新增 template"
+  },
+  "Add a script tag (typescript)": {
+    "scope": "vue",
+    "prefix": "script:ts",
+    "body": [
+      "<script lang=\"ts\">",
+      "</script>",
+    ],
+    "description": "新增 script (ts)"
+  },
+  "Add a script tag with setup (typescript)": {
+    "scope": "vue",
+    "prefix": "script:ts-setup",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "</script>",
+    ],
+    "description": "新增 script (ts + setup)"
+  },
+  "Add a template tag with scope name": {
+    "scope": "vue",
+    "prefix": "#template",
+    "body": "<template #$1>$2</template>",
+    "description": "新增 template"
+  },
+  "Add page route config": {
+    "scope": "vue",
+    "prefix": "route:meta",
+    "body": [
+      "<route lang=\"yaml\">",
+      "meta:",
+      "  title: $1",
+      "</route>",
+    ],
+    "description": "新增route meta 設定"
+  },
+  "Import @vueuse/core": {
+    "prefix": "import:vueuse/core",
+    "scope": "typescript",
+    "body": "import {$0} from '@vueuse/core';",
+    "description": "導入 VueUse 工具(core)"
+  },
+  "Import @vueuse/head": {
+    "prefix": "import:vueuse/head",
+    "scope": "typescript",
+    "body": "import {$0} from '@vueuse/head';",
+    "description": "導入 VueUse 工具(head)"
+  }
+}

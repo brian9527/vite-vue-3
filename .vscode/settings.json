@@ -1,0 +1,49 @@
+{
+  /* Base
+  -------------------------------------------------------------------------- */
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  /* [plugin] prettier
+  -------------------------------------------------------------------------- */
+  "prettier.enable": false,
+  /* [plugin] Blueprint
+  -------------------------------------------------------------------------- */
+  "blueprint.templatesPath": [
+    ".vscode/templates"
+  ],
+  /* [plugin] Code Spell Checker
+  -------------------------------------------------------------------------- */
+  "cSpell.ignorePaths": [
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode",
+    ".vscode-insiders"
+  ],
+  "cSpell.words": [
+    "vueuse",
+    "windi"
+  ],
+  /* [plugin] ESLint
+  -------------------------------------------------------------------------- */
+  "eslint.format.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue",
+    "json"
+  ],
+  /* [plugin] volar
+  -------------------------------------------------------------------------- */
+  "volar.tsPlugin": true,
+  "volar.tsPluginStatus": false,
+  /* [plugin] WindiCSS intellisense
+  -------------------------------------------------------------------------- */
+  "windicss.sortOnSave": true,
+  "windicss.enableCodeFolding": false,
+}
