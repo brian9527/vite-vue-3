@@ -11,16 +11,16 @@ export default defineComponent({
       '島喜阿凜',
       '哈!太苦囉'
     ]
+    let num = 1;
 
-    function changeWord(index: number) {
+    function changeWord() {
       const arrLength = arrData.length;
-      console.log(arrCount.value);
-      if (index === (arrLength - 1)) {
-        arrCount.value = 0
-      } else {
-        ++arrCount.value
+      arrCount.value = arrCount.value + num
+      console.log(num);
+      if (arrCount.value === (arrLength - 1) || arrCount.value === 0) {
+        num = num * -1
       }
-      console.log(arrCount.value);
+      console.log(num);
     }
 
     return {
@@ -100,7 +100,7 @@ export default defineComponent({
         </span>
         <button
           class="button"
-          @click="changeWord(arrCount)"
+          @click="changeWord"
         >
           change
         </button>
