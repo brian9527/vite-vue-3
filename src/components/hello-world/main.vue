@@ -3,8 +3,31 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
+    const arrCount = ref(0)
+    const arrData = [
+      '10點整晚上好',
+      '島想刀殺',
+      '島民怎麼看',
+      '島喜阿凜',
+      '哈!太苦囉'
+    ]
+
+    function changeWord(index: number) {
+      const arrLength = arrData.length;
+      console.log(arrCount.value);
+      if (index === (arrLength - 1)) {
+        arrCount.value = 0
+      } else {
+        ++arrCount.value
+      }
+      console.log(arrCount.value);
+    }
+
     return {
-      count: ref(0)
+      count: ref(0),
+      arrCount,
+      arrData,
+      changeWord
     };
   }
 });
@@ -55,10 +78,40 @@ export default defineComponent({
         target="_blank"
       >Vue 3 Docs</a>
     </p>
+    <div class="buttons-text">
+      <div class="count-div motion-block">
+        <button
+          class="button"
+          @click="count++"
+        >
+          count++
+        </button>
+        <button
+          class="button"
+          @click="count--"
+        >
+          count--
+        </button>
+        {{ count }}
+      </div>
+      <div class="arr-div motion-block">
+        <span>
+          {{ arrData[arrCount] }}
+        </span>
+        <button
+          class="button"
+          @click="changeWord(arrCount)"
+        >
+          change
+        </button>
+        <span
+          v-for="(item, index) in arrData"
+          :key="index"
+          class=""
+        >{{ item }}</span>
+      </div>
+    </div>
 
-    <button @click="count++">
-      count is: {{ count }}
-    </button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -66,7 +119,7 @@ export default defineComponent({
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
 a {
   @apply text-green-600;
 }
@@ -89,5 +142,22 @@ button {
   &:focus {
     @apply outline-none;
   }
+}
+</style> -->
+<style lang="less">
+.text-center {
+  background-color: #000;
+}
+.button {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  background-color: rgb(7, 68, 37);
+}
+.buttons-text {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.motion-block {
+  display: grid;
 }
 </style>
