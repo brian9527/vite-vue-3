@@ -5,11 +5,11 @@ export default defineComponent({
   setup() {
     const arrCount = ref(0)
     const arrData = [
-      '10點整晚上好',
-      '島想刀殺',
-      '島民怎麼看',
-      '島喜阿凜',
-      '哈!太苦囉'
+      '這是第一段',
+      '第二段在這裡',
+      '中間是第三段',
+      '倒數第二是四段',
+      '五段最後尾'
     ]
     let num = 1;
 
