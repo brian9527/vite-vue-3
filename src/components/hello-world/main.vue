@@ -1,8 +1,21 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, reactive, computed } from 'vue';
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
+    const date: any = reactive(
+      {
+        now: new Date(),
+        nowString: computed(
+          () => (date.now + '').toLocaleString()
+        )
+      }
+    )
+    window.setInterval(
+      () => {
+        date.now = new Date()
+      }, 1000
+    )
     const arrCount = ref(0)
     const arrData = [
       '這是第一段',
@@ -27,7 +40,8 @@ export default defineComponent({
       count: ref(0),
       arrCount,
       arrData,
-      changeWord
+      changeWord,
+      date
     };
   }
 });
@@ -109,6 +123,9 @@ export default defineComponent({
           :key="index"
           class=""
         >{{ item }}</span>
+      </div>
+      <div class="clock-div">
+        {{ date.nowString }}
       </div>
     </div>
 
