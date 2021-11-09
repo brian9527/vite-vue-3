@@ -17,23 +17,27 @@ export default defineComponent({
       }, 1000
     )
     const arrCount = ref(0)
-    const arrData = [
-      '這是第一段',
-      '第二段在這裡',
-      '中間是第三段',
-      '倒數第二是四段',
-      '五段最後尾'
-    ]
+    const arrData: any = reactive(
+      [
+        { text: '這是第一段', color: true},
+        { text: '第二段在這裡', color: false},
+        { text: '中間是第三段', color: false},
+        { text: '倒數第二是四段', color: false},
+        { text: '五段最後尾', color: false}
+      ]
+    )
     let num = 1;
 
     function changeWord() {
       const arrLength = arrData.length;
       arrCount.value = arrCount.value + num
-      console.log(num);
+      arrData[arrCount.value].color = !arrData[arrCount.value].color;
       if (arrCount.value === (arrLength - 1) || arrCount.value === 0) {
         num = num * -1
       }
-      console.log(num);
+      setTimeout(() => {
+        arrData[(arrCount.value - num)].color = !arrData[arrCount.value].color
+      }, 0)
     }
 
     return {
@@ -110,7 +114,7 @@ export default defineComponent({
       </div>
       <div class="arr-div motion-block">
         <span>
-          {{ arrData[arrCount] }}
+          {{ arrData[arrCount].text }}
         </span>
         <button
           class="button"
@@ -121,8 +125,8 @@ export default defineComponent({
         <span
           v-for="(item, index) in arrData"
           :key="index"
-          class=""
-        >{{ item }}</span>
+          :class="{'arrData-item': arrData[index].color}"
+        >{{ item.text }}</span>
       </div>
       <div class="clock-div">
         {{ date.nowString }}
@@ -176,5 +180,8 @@ button {
 }
 .motion-block {
   display: grid;
+}
+.arrData-item {
+  background-color: blue;
 }
 </style>
