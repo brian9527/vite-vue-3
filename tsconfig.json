@@ -10,7 +10,10 @@
     "esModuleInterop": true,
     "lib": [
       "esnext",
-      "dom"
+      "dom",
+      "ES6",
+      "DOM.Iterable",
+      "ScriptHost"
     ],
     "types": [
       "vite/client",
