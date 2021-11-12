@@ -16,15 +16,22 @@ if (regex.test(route.path)) {
 
 <template>
   <div class="h-full bg-gray-900 p-4 dark:(bg-gray-50)">
-    <h2 class="font-bold text-2xl">
-      Page Not Found
-    </h2>
+    <h2 class="font-bold text-2xl">Page Not Found</h2>
     <code class="text-true-gray-600">path: {{ $route.fullPath }}</code>
     <div class="py-2">
       <a
-        class="border rounded-md cursor-pointer border-green-900 p-1 px-2 text-green-900"
+        class="
+          border
+          rounded-md
+          cursor-pointer
+          border-green-900
+          p-1
+          px-2
+          text-green-900
+        "
         @click.prevent="router.back()"
-      >back</a>
+        >back</a
+      >
     </div>
   </div>
 </template>

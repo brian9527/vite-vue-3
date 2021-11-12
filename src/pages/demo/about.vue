@@ -4,7 +4,5 @@ meta:
 </route>
 
 <template>
-  <div class="h-full">
-    about
-  </div>
+  <div class="h-full">about</div>
 </template>

@@ -10,8 +10,8 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
     '@vue/typescript/recommended',
-    // '@vue/prettier',
-    // '@vue/prettier/@typescript-eslint'
+    '@vue/prettier',
+    '@vue/prettier/@typescript-eslint'
   ],
 
   parserOptions: {
@@ -67,19 +67,19 @@ module.exports = {
     'no-return-assign': 'off',
     'operator-linebreak': ['error', 'before'],
     // prettier
-    // 'prettier/prettier': [
-    //   'warn',
-    //   {
-    //     tabWidth: 2,
-    //     useTabs: false,
-    //     semi: true,
-    //     singleQuote: true,
-    //     bracketSpacing: true,
-    //     arrowParens: 'always',
-    //     trailingComma: 'none',
-    //     stylelintIntegration: true,
-    //     eslintIntegration: true
-    //   }
-    // ]
+    'prettier/prettier': [
+      'warn',
+      {
+        tabWidth: 2,
+        useTabs: false,
+        semi: true,
+        singleQuote: true,
+        bracketSpacing: true,
+        arrowParens: 'always',
+        trailingComma: 'none',
+        stylelintIntegration: true,
+        eslintIntegration: true
+      }
+    ]
   }
 };

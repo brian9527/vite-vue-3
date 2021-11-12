@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
+import { computed } from 'vue';
 import { useHead } from '@vueuse/head';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const title = computed(() => {
-  return route.meta.title as string ?? 'Page Not Found';
+  return (route.meta.title as string) ?? 'Page Not Found';
 });
 
 useHead({
@@ -17,4 +17,3 @@ useHead({
   <!-- layout: 404 -->
   <router-view />
 </template>
-

@@ -18,30 +18,28 @@ useHead({
 
 <template>
   <!-- layout: default -->
-  <div
-    class="base-layout"
-  >
+  <div class="base-layout">
     <div
-      class="bg-white flex border-b-1 border-green-700 border-opacity-20 h-10 px-3 top-0 leading-10 z-10 sticky dark:(bg-gray-900 text-white border-true-gray-800)"
+      class="
+        bg-white
+        flex
+        border-b-1 border-green-700 border-opacity-20
+        h-10
+        px-3
+        top-0
+        leading-10
+        z-10
+        sticky
+        dark:(bg-gray-900
+        text-white
+        border-true-gray-800)
+      "
     >
-      <router-link
-        class="router-link"
-        to="/"
-      >
-        home
-      </router-link>
-      <router-link
-        class="router-link"
-        to="/demo/about"
-      >
-        about
-      </router-link>
+      <router-link class="router-link" to="/"> home </router-link>
+      <router-link class="router-link" to="/demo/about"> about </router-link>
 
       <div class="navigator-options">
-        <button
-          class="icon-button"
-          @click="toggleDark"
-        >
+        <button class="icon-button" @click="toggleDark">
           <iconify-ph-moon v-show="!isDark" />
           <iconify-ic-outline-wb-sunny v-show="isDark" />
         </button>

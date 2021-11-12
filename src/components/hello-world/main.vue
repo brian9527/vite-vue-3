@@ -3,41 +3,33 @@ import { defineComponent, ref, reactive, computed } from 'vue';
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
-    const date: any = reactive(
-      {
-        now: new Date(),
-        nowString: computed(
-          () => (date.now + '').toLocaleString()
-        )
-      }
-    )
-    window.setInterval(
-      () => {
-        date.now = new Date()
-      }, 1000
-    )
-    const arrCount = ref(0)
-    const arrData: any = reactive(
-      [
-        { text: '這是第一段', color: true},
-        { text: '第二段在這裡', color: false},
-        { text: '中間是第三段', color: false},
-        { text: '倒數第二是四段', color: false},
-        { text: '五段最後尾', color: false}
-      ]
-    )
+    const date: any = reactive({
+      now: new Date(),
+      nowString: computed(() => (date.now + '').toLocaleString())
+    });
+    window.setInterval(() => {
+      date.now = new Date();
+    }, 1000);
+    const arrCount = ref(0);
+    const arrData: any = reactive([
+      { text: '這是第一段', color: true },
+      { text: '第二段在這裡', color: false },
+      { text: '中間是第三段', color: false },
+      { text: '倒數第二是四段', color: false },
+      { text: '五段最後尾', color: false }
+    ]);
     let num = 1;
 
     function changeWord() {
       const arrLength = arrData.length;
-      arrCount.value = arrCount.value + num
+      arrCount.value = arrCount.value + num;
       arrData[arrCount.value].color = !arrData[arrCount.value].color;
-      if (arrCount.value === (arrLength - 1) || arrCount.value === 0) {
-        num = num * -1
+      if (arrCount.value === arrLength - 1 || arrCount.value === 0) {
+        num = num * -1;
       }
       setTimeout(() => {
-        arrData[(arrCount.value - num)].color = !arrData[arrCount.value].color
-      }, 0)
+        arrData[arrCount.value - num].color = !arrData[arrCount.value].color;
+      }, 0);
     }
 
     return {
@@ -52,30 +44,21 @@ export default defineComponent({
 </script>
 
 <template>
-  <img
-    class="mx-auto my-10 mt-20"
-    alt="Vue logo"
-    src="@/assets/logo.png"
-  />
+  <img class="mx-auto my-10 mt-20" alt="Vue logo" src="@/assets/logo.png" />
   <div class="text-center">
     <h1>Hello Vue 3 + TypeScript + Vite</h1>
 
     <p>
       Recommended IDE setup:
-      <a
-        href="https://code.visualstudio.com/"
-        target="_blank"
-      >VSCode</a>
+      <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
       +
       <a
         href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
         target="_blank"
-      >Vetur</a>
+        >Vetur</a
+      >
       or
-      <a
-        href="https://github.com/johnsoncodehk/volar"
-        target="_blank"
-      >Volar</a>
+      <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
       (if using
       <code>&lt;script setup&gt;</code>)
     </p>
@@ -86,47 +69,29 @@ export default defineComponent({
     </p>
 
     <p>
-      <a
-        href="https://vitejs.dev/guide/features.html"
-        target="_blank"
-      >Vite Docs</a>
+      <a href="https://vitejs.dev/guide/features.html" target="_blank"
+        >Vite Docs</a
+      >
       |
-      <a
-        href="https://v3.vuejs.org/"
-        target="_blank"
-      >Vue 3 Docs</a>
+      <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
     </p>
     <div class="buttons-text">
       <div class="count-div motion-block">
-        <button
-          class="button"
-          @click="count++"
-        >
-          count++
-        </button>
-        <button
-          class="button"
-          @click="count--"
-        >
-          count--
-        </button>
+        <button class="button" @click="count++">count++</button>
+        <button class="button" @click="count--">count--</button>
         {{ count }}
       </div>
       <div class="arr-div motion-block">
         <span>
           {{ arrData[arrCount].text }}
         </span>
-        <button
-          class="button"
-          @click="changeWord"
-        >
-          change
-        </button>
+        <button class="button" @click="changeWord">change</button>
         <span
           v-for="(item, index) in arrData"
           :key="index"
-          :class="{'arrData-item': arrData[index].color}"
-        >{{ item.text }}</span>
+          :class="{ 'arrData-item': arrData[index].color }"
+          >{{ item.text }}</span
+        >
       </div>
       <div class="clock-div">
         {{ date.nowString }}
