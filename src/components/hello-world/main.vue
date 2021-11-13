@@ -7,9 +7,6 @@ export default defineComponent({
       now: new Date(),
       nowString: computed(() => (date.now + '').toLocaleString())
     });
-    window.setInterval(() => {
-      date.now = new Date();
-    }, 1000);
     const arrCount = ref(0);
     const arrData: any = reactive([
       { text: '這是第一段', color: true },
@@ -18,8 +15,12 @@ export default defineComponent({
       { text: '倒數第二是四段', color: false },
       { text: '五段最後尾', color: false }
     ]);
+    const apiResult = ref(null);
     let num = 1;
 
+    window.setInterval(() => {
+      date.now = new Date();
+    }, 1000);
     function changeWord() {
       const arrLength = arrData.length;
       arrCount.value = arrCount.value + num;
