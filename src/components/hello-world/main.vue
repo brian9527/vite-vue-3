@@ -1,8 +1,12 @@
 <script lang="ts">
-import { defineComponent, ref, reactive, computed } from 'vue';
+import { defineComponent, ref, reactive, computed, onMounted } from 'vue';
+import { getData } from '../../service/dataService';
 export default defineComponent({
   name: 'HelloWorld',
   setup() {
+    // onMounted(() => {
+    //   getData();
+    // });
     const date: any = reactive({
       now: new Date(),
       nowString: computed(() => (date.now + '').toLocaleString())
@@ -15,7 +19,7 @@ export default defineComponent({
       { text: '倒數第二是四段', color: false },
       { text: '五段最後尾', color: false }
     ]);
-    const apiResult = ref(null);
+
     let num = 1;
 
     window.setInterval(() => {

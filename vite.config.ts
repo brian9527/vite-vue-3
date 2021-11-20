@@ -31,6 +31,15 @@ export default defineConfig({
     pluginIcons()
   ],
   server: {
+    // host: '0.0.0.0',
     port: 8080
+    // proxy: {
+    //   '/api': {
+    //     // 實際請求地址，可能因此需要修改
+    //     target: 'https://www.travel.taipei/open-api/',
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, '')
+    //   }
+    // }
   }
 });
